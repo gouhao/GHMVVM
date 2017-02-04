@@ -19,12 +19,10 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
     protected V activityDataBinding;
     protected M activityModel;
 
-    protected SystemBarTintManager tintManager;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTintStatus();
+        setTintStatusBar();
         activityLayout = new ActivityLayout(this, 200);
         setContentView(activityLayout);
         initActivityDataBinding();
@@ -39,7 +37,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
         initTitle();
     }
 
-    private void setTintStatus() {
+    private void setTintStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
