@@ -66,4 +66,9 @@ public class CustomToolbar extends Toolbar implements ITitleBar {
     public void setTitlePadding(int l, int t, int r, int b) {
 
     }
+
+    @Override
+    public void setTintColor(int color) {
+
+    }
 }

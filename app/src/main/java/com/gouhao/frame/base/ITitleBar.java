@@ -28,4 +28,6 @@ public interface ITitleBar {
     void setTitleTextSize(float size);
 
     void setTitlePadding(int l, int t, int r, int b);
+
+    void setTintColor(int color);
 }

@@ -27,6 +27,7 @@ public class TitleBarView extends RelativeLayout implements ITitleBar{
 	protected LayoutInflater inflater;
 	protected LinearLayout leftLayout;
 	protected RelativeLayout parent;
+	protected View tintView;
 	public TitleBarView(Context context) {
 		this(context, null);
 		title.setGravity(Gravity.CENTER);
@@ -34,19 +35,20 @@ public class TitleBarView extends RelativeLayout implements ITitleBar{
 
 	public TitleBarView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+
 		inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		initLayout();
 	}
 
 	private void initLayout() {
-		//这个View是为了实现沉浸式标题栏，在标题栏上面又加了20高度。当然，这种做法比较LOW
-		View view = new View(getContext());
-		view.setId(1994);
-		view.setBackgroundColor(Color.RED);
+		//这个View是为了实现沉浸式标题栏，在标题栏上面又加了和状态栏一样高度的View。当然，这种做法比较LOW
+		tintView = new View(getContext());
+		tintView.setId(1994);
+		tintView.setBackgroundColor(Color.RED);
 		LayoutParams params1 = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight());
-		addView(view, params1);
+		addView(tintView, params1);
 		parent = new RelativeLayout(getContext());
-
+		parent.setBackgroundColor(Color.RED);
 		leftLayout = new LinearLayout(getContext());
 		leftLayout.setOrientation(LinearLayout.HORIZONTAL);
 		LayoutParams leftParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -157,5 +159,10 @@ public class TitleBarView extends RelativeLayout implements ITitleBar{
 	@Override
 	public void setTitlePadding(int l, int t, int r, int b) {
 		parent.setPadding(l, t, r, b);
+	}
+
+	@Override
+	public void setTintColor(int color) {
+		tintView.setBackgroundColor(color);
 	}
 }

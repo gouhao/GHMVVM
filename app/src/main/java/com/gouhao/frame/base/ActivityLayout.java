@@ -3,6 +3,7 @@ package com.gouhao.frame.base;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.LinearLayout;
 
 /**
@@ -28,6 +29,8 @@ public class ActivityLayout extends LinearLayout{
     }
 
     private void initView() {
+        if(titleBar instanceof TitleBarView) {
+        }
         LinearLayout.LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 titleBarHeight);
         addView((View) titleBar, params);
