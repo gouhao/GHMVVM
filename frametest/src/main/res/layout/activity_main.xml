@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
-        <import type="com.gouhao.frametest.main.MyButton"/>
+        <import type="com.gouhao.frametest.main.MainActivityData"/>
+        <import type="com.gouhao.frametest.main.MainModel"/>
         <variable
-            name="button1"
-            type="MyButton"/>
+            name="data"
+            type="MainActivityData"/>
+
         <variable
-            name="button2"
-            type="MyButton"/>
+            name="model"
+            type="MainModel"/>
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
@@ -16,13 +18,13 @@
             android:id="@+id/btn_button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{button1.text}"
-            android:onClick="@{(view)->button1.handler()}"/>
+            android:text="@{data.buttonText1}"
+            android:onClick="@{(view)->model.buttonClick1()}"/>
         <Button
             android:id="@+id/btn_button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{button2.text}"
-            android:onClick="@{(view)->button1.handler()}"/>
+            android:text="@{data.buttonText2}"
+            android:onClick="@{(view)->model.buttonClick2()}"/>
     </LinearLayout>
 </layout>

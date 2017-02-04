@@ -13,29 +13,39 @@ import android.view.WindowManager;
 /**
  * Created by gouhao on 2017/2/3 0003.
  */
-public abstract class BaseActivity<V extends ViewDataBinding, M extends ActivityModel> extends AppCompatActivity {
+public abstract class BaseActivity<V extends ViewDataBinding, M extends ActivityModel, D extends ActivityData>
+        extends AppCompatActivity {
     private ActivityLayout activityLayout;
 
     protected V activityDataBinding;
     protected M activityModel;
-
+    protected D activityData;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTintStatusBar();
+
         activityLayout = new ActivityLayout(this, 200);
         setContentView(activityLayout);
+
+
+
         initActivityDataBinding();
         if(activityDataBinding == null) {
             throw new NullPointerException("What the fuck!ActivityDataBinding is null");
         }
+        addContentView(activityDataBinding.getRoot());
 
-        initActivityModel();
-        if(activityModel == null) {
-            throw new NullPointerException("What the fuck!ActivityMode is null");
-        }
+        initDataAndModel();
+
         initTitle();
     }
+
+    protected abstract void initDataAndModel();
+
+    protected abstract void initTitle();
+
+    protected abstract void initActivityDataBinding();
 
     private void setTintStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -48,12 +58,6 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
             window.setStatusBarColor(Color.TRANSPARENT);
         }
     }
-
-    protected abstract void initTitle();
-
-    protected abstract void initActivityModel();
-
-    protected abstract void initActivityDataBinding();
 
     public void addContentView(View view) {
         activityLayout.addContentView(view);
