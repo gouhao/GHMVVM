@@ -10,7 +10,7 @@ import android.view.View;
  * Created by gouhao on 2017/2/3 0003.
  */
 public abstract class BaseActivity<V extends ViewDataBinding, M extends ActivityModel> extends AppCompatActivity {
-    private ActivityView activityView;
+    private ActivityLayout activityLayout;
 
     protected V activityDataBinding;
     protected M activityModel;
@@ -18,8 +18,8 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityView = new ToolbarActivityView(this);
-        setContentView(activityView);
+        activityLayout = new ActivityLayout(this, 200);
+        setContentView(activityLayout);
         initActivityDataBinding();
         if(activityDataBinding == null) {
             throw new NullPointerException("What the fuck!ActivityDataBinding is null");
@@ -29,37 +29,20 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
         if(activityModel == null) {
             throw new NullPointerException("What the fuck!ActivityMode is null");
         }
+        initTitle();
     }
+
+    protected abstract void initTitle();
 
     protected abstract void initActivityModel();
 
     protected abstract void initActivityDataBinding();
 
     public void addContentView(View view) {
-        activityView.addContentView(view);
+        activityLayout.addContentView(view);
     }
 
-    public void removeTitleBar() {
-        activityView.setTitleBarVisibility(View.GONE);
-    }
-
-    public void showTitleBar() {
-        activityView.setTitleBarVisibility(View.VISIBLE);
-    }
-
-    public void setTitleBarTitle(int resId) {
-        activityView.setTitleBarTitle(resId);
-    }
-
-    public void setTitleBarTitle(String title) {
-        activityView.setTitleBarTitle(title);
-    }
-
-    public void addTitleBarRightView(View view) {
-        activityView.addTitleBarRightView(view);
-    }
-
-    public void addTitleBarLeftView(View view) {
-        activityView.addTitleBarLeftView(view);
+    public ITitleBar getTitleBar() {
+        return activityLayout.getTitleBar();
     }
 }

@@ -20,6 +20,11 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, ActivityMode
     }
 
     @Override
+    protected void initTitle() {
+        getTitleBar().setTitleBarTitle("Gouhao");
+    }
+
+    @Override
     protected void initActivityModel() {
         activityModel = new MainModel(activityDataBinding);
     }
