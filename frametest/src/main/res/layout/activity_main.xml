@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="com.gouhao.frametest.main.MyButton"/>
+        <variable
+            name="button1"
+            type="MyButton"/>
+        <variable
+            name="button2"
+            type="MyButton"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btn_button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{button1.text}"
+            android:onClick="@{(view)->button1.handler()}"/>
+        <Button
+            android:id="@+id/btn_button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{button2.text}"
+            android:onClick="@{(view)->button1.handler()}"/>
+    </LinearLayout>
+</layout>
