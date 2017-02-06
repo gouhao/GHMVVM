@@ -9,7 +9,8 @@ import com.gouhao.frametest.databinding.ActivityMainBinding;
 /**
  * Created by gouhao on 2017/2/3 0003.
  */
-public class MainActivity extends BaseActivity<ActivityMainBinding, MainModel, MainActivityData> {
+public class MainActivity extends BaseActivity<ActivityMainBinding,
+        MainModel, MainActivityData> {
 
     @Override
     protected void initDataAndModel() {

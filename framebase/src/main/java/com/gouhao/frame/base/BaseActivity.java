@@ -13,7 +13,7 @@ import android.view.WindowManager;
 /**
  * Created by gouhao on 2017/2/3 0003.
  */
-public abstract class BaseActivity<V extends ViewDataBinding, M extends ActivityModel, D extends ActivityData>
+public abstract class BaseActivity<V extends ViewDataBinding, M extends ActivityModel<V>, D extends ActivityData>
         extends AppCompatActivity {
     private ActivityLayout activityLayout;
 

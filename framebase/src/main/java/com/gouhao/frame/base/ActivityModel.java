@@ -5,11 +5,11 @@ import android.databinding.ViewDataBinding;
 /**
  * Created by gouhao on 2017/2/3 0003.
  */
-public abstract class ActivityModel implements IModel{
+public abstract class ActivityModel<T extends ViewDataBinding> implements IModel{
     protected String TAG = getClass().getSimpleName();
-    private ViewDataBinding viewDataBinding;
+    protected T viewDataBinding;
 
-    public ActivityModel(ViewDataBinding dataBinding) {
+    public ActivityModel(T dataBinding) {
         viewDataBinding = dataBinding;
     }
 }
