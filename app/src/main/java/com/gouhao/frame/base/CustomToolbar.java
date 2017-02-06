@@ -6,6 +6,7 @@ import android.view.View;
 
 /**
  * Created by gouhao on 2017/2/4 0004.
+ * Toolbar风格的标题栏
  */
 public class CustomToolbar extends Toolbar implements ITitleBar {
     public CustomToolbar(Context context) {

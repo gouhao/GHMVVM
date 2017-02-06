@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 /**
  * Created by gouhao on 2017/2/3 0003.
+ * Activity的布局类，里面集成了标题栏
  */
 public class ActivityLayout extends LinearLayout{
     private ITitleBar titleBar;

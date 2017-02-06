@@ -23,12 +23,11 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTintStatusBar();
+        initTintStatusBar();
 
+        //在这里设置标题栏的高度
         activityLayout = new ActivityLayout(this, 200);
         setContentView(activityLayout);
-
-
 
         initActivityDataBinding();
         if(activityDataBinding == null) {
@@ -47,7 +46,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
 
     protected abstract void initActivityDataBinding();
 
-    private void setTintStatusBar() {
+    private void initTintStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -59,7 +58,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
         }
     }
 
-    public void addContentView(View view) {
+    private void addContentView(View view) {
         activityLayout.addContentView(view);
     }
 

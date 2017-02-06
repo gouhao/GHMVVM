@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 /**
  * Created by gouhao on 2016-02-19.
+ * 自定义的标题栏
  */
 public class TitleBarView extends RelativeLayout implements ITitleBar{
 	public final static int ID_LEFT = 1992;
