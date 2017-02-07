@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,
         adapter.setOnItemClickListener(new MainListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ItemListBinding dataBinding, int position) {
-                Toast.makeText(MainActivity.this, "Item " + (position + 1) + " clicked", 2000).show();
+                Toast.makeText(MainActivity.this, "Item " + (position + 1) + " clicked", 400).show();
             }
         });
         activityDataBinding.recyclerView.setAdapter(adapter);
