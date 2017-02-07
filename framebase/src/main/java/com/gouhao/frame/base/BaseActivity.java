@@ -37,12 +37,15 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
         }
         addContentView(activityDataBinding.getRoot());
 
-        initDataAndModel();
+        initActivityData();
+        initActivityModel();
 
         initTitle();
     }
 
-    protected abstract void initDataAndModel();
+    protected abstract void initActivityModel();
+
+    protected abstract void initActivityData();
 
     protected abstract void initTitle();
 

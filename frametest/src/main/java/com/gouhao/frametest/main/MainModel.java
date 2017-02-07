@@ -24,6 +24,7 @@ public class MainModel extends ActivityModel<ActivityMainBinding> implements IMa
     @Override
     public void buttonClick2() {
         Log.d(TAG, "button2 click");
-        viewDataBinding.getData().buttonText2.set("button2 click");
+        MainActivityData data = viewDataBinding.getData();
+        data.isShowLabelText.set(!data.isShowLabelText.get());
     }
 }
