@@ -1,6 +1,7 @@
 package com.gouhao.frametest.main;
 
 import android.databinding.DataBindingUtil;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.gouhao.frame.base.BaseActivity;
 import com.gouhao.frametest.R;
@@ -16,6 +17,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,
     protected void initActivityDataBinding() {
         activityDataBinding = DataBindingUtil.inflate(getLayoutInflater(),
                 R.layout.activity_main, null, false);
+        activityDataBinding.recyclerView.setAdapter(new MainListAdapter());
+        activityDataBinding.recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
 
     @Override
