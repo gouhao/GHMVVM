@@ -96,8 +96,16 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
     }
 
     @Override
+    protected void onRestart() {
+        LogUtil.d(TAG, "onRestart");
+        super.onRestart();
+    }
+
+    @Override
     protected void onDestroy() {
         LogUtil.d(TAG, "onDestroy");
         super.onDestroy();
     }
+
+
 }
