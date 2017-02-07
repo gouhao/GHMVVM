@@ -20,14 +20,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{data.buttonText1}"
-            android:onClick="@{(view)->model.buttonClick1()}"/>
+            android:onClick="@{(view)->model.buttonClick1()}"
+            android:textAllCaps="false"/>
         <Button
             android:id="@+id/btn_button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{data.buttonText2}"
             android:onClick="@{(view)->model.buttonClick2()}"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"/>
 
         <TextView
             android:layout_width="match_parent"

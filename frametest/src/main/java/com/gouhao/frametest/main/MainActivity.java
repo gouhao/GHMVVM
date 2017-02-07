@@ -31,7 +31,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,
         activityDataBinding.recyclerView.setLayoutManager(new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false));
         activityDataBinding.recyclerView.setHasFixedSize(true);
-        activityDataBinding.recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        activityDataBinding.recyclerView.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL));
     }
 
     @Override
@@ -49,9 +50,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,
         activityModel = new MainModel(activityDataBinding);
         activityDataBinding.setModel(activityModel);
     }
-
-
-
     @Override
     protected void initTitle() {
         getTitleBar().setTitleBarTitle("Gouhao");
