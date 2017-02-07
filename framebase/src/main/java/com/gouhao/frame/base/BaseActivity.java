@@ -15,6 +15,7 @@ import android.view.WindowManager;
  */
 public abstract class BaseActivity<V extends ViewDataBinding, M extends ActivityModel<V>, D extends ActivityData>
         extends AppCompatActivity {
+    protected String TAG = getClass().getSimpleName();
     private ActivityLayout activityLayout;
 
     protected V activityDataBinding;
@@ -22,6 +23,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
     protected D activityData;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        LogUtil.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         initTintStatusBar();
 
@@ -64,5 +66,35 @@ public abstract class BaseActivity<V extends ViewDataBinding, M extends Activity
 
     public ITitleBar getTitleBar() {
         return activityLayout.getTitleBar();
+    }
+
+    @Override
+    protected void onStart() {
+        LogUtil.d(TAG, "onStart");
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        LogUtil.d(TAG, "onResume");
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        LogUtil.d(TAG, "onPause");
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        LogUtil.d(TAG, "onStop");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        LogUtil.d(TAG, "onDestroy");
+        super.onDestroy();
     }
 }
